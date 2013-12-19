@@ -85,8 +85,8 @@ set statusline=%F\ [%{strlen(&fenc)?&fenc:'none'}][%{&ff}]%h%w%y%m%r%=%l:%c\ %l/
 " Input                       "
 """""""""""""""""""""""""""""""
 
-"Set mouse to r to enable middle button paste
-set mouse=r
+"Have mouse always enabled
+set mouse=a
 
 "Leader and local leader
 let mapleader = 'j'
@@ -149,9 +149,7 @@ let g:miniBufExplUseSingleClick = 1
 "let g:miniBufExplSplitBelow=1
 
 "LaTeX Suite
-"let g:Tex_CompileRule_pdf = 'xelatex'
-"let g:Tex_CompileRule_pdf = 'pdflatex'
-let g:Tex_CompileRule_pdf = 'lualatex'
+let g:Tex_CompileRule_pdf = 'lualatex --shell-escape'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_FoldedSections="part,chapter,section,%%fakesection,subsection,subsubsection,paragraph"
 let g:Tex_FoldedMisc=""
