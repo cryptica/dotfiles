@@ -1,0 +1,2 @@
+map <A-Down> :bnext<CR>
+map <A-Up> :bprevious<CR>
