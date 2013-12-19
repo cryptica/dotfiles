@@ -21,8 +21,8 @@ set autoread
 "Enable magic search patterns
 set magic
 
-"No error bells
-set noerrorbells
+"Use error bells
+set errorbells
 set novisualbell
 
 "When .vimrc is edited, reload it
@@ -99,35 +99,10 @@ let g:maplocalleader = 'h'
 nmap <leader>w :w<cr>
 "Quit
 nmap <leader>q :qa<cr>
-"Edit
-nmap <leader>e :e 
+"Tab edit
+nmap <leader>e :tabedit 
 "Intelligent close
-map <leader>c :Bclose<cr>
-
-"Go to next buffer before closing current
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete ".l:currentBufNum)
-   endif
-endfunction
-
-"Map space to / and c-space to ?
-map <space> /
-map <C-space> ?
+map <leader>c :tabclose<cr>
 
 "Smart way to move btw. windows
 map <C-down> <C-W><down>
@@ -135,18 +110,13 @@ map <C-up> <C-W><up>
 map <C-left> <C-W><left>
 map <C-right> <C-W><right>
 
-"Move around buffers
-map <M-left> :MBEbp<cr>
-map <M-right> :MBEbn<cr>
+"Move around tabs
+map <M-left> :tabprevious<cr>
+map <M-right> :tabnext<cr>
 
 """""""""""""""""""""""""""""""
 " Plugin configuration        "
 """""""""""""""""""""""""""""""
-
-"Minibuffer
-let g:miniBufExplUseSingleClick = 1
-"let g:miniBufExplVSplit = 25
-"let g:miniBufExplSplitBelow=1
 
 "LaTeX Suite
 let g:Tex_CompileRule_pdf = 'lualatex --shell-escape'
@@ -162,7 +132,7 @@ autocmd BufNewFile,Bufread *.tex set filetype=tex
 "Yank Ring
 map <leader>r :YRShow<cr>
 let g:yankring_persist = 0
-let g:yankring_history_dir = "~/.vim"
+let g:yankring_history_dir = "~/"
 
 """""""""""""""""""""""""""""""
 " Misc                        "
