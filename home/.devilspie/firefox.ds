@@ -1,0 +1,8 @@
+(if
+    (is (application_name) "Firefox")
+    (begin
+        (undecorate)
+        (maximize)
+    )
+)
+

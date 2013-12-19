@@ -1,0 +1,18 @@
+(if
+    (is (application_name) "Terminal")
+    (if 
+        (is (window_name) "Screen-Terminal")
+        (begin
+            (skip_tasklist)
+            (skip_pager)
+            (undecorate)
+            (below)
+            (stick)
+            (geometry "1010x710+1920+500")
+        )
+        (begin
+            (undecorate)
+        )
+    )
+)
+

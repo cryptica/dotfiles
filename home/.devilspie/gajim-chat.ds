@@ -1,0 +1,15 @@
+(if
+    (and
+        (is (application_name) "gajim")
+        (matches (window_name) ".* - Gajim")
+    )
+    (begin
+        (skip_tasklist)
+        (skip_pager)
+        (undecorate)
+        (below)
+        (stick)
+        (geometry "1010x321+1920+175")
+    )
+)
+
