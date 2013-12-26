@@ -2,6 +2,10 @@
 " General                     "
 """""""""""""""""""""""""""""""
 
+"Load pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
 "Don't use VI compatible mode
 set nocompatible
 
@@ -11,6 +15,16 @@ filetype indent on
 
 "Sets how many lines of history VIM has to remember
 set history=300
+
+"Show command
+set showcmd
+
+"Show matching braces
+set showmatch
+
+"Enable wildmenu
+set wildmenu
+set wildignore=*.dll,*.o,*.pyc,*.pyo,*.bak,*.swp,*.exe,*.jpg,*.jpeg,*.png,*.gif
 
 "Enable hidden buffers
 set hidden
@@ -28,14 +42,21 @@ set novisualbell
 "When .vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
+" http://vim.wikia.com/wiki/Accessing_the_system_clipboard
+" needs +clipboard / +xterm_clipboard
+" (in Arch you need the gvim package even with console vim)
+set clipboard=unnamedplus
+
 """""""""""""""""""""""""""""""
 " Indent & Tabs               "
 """""""""""""""""""""""""""""""
 
 "Auto indent
 set autoindent
-"Smart indet
+"Smart indent
 set smartindent
+"No cindent
+set nocindent
 
 "Wrap lines
 set wrap
@@ -50,6 +71,8 @@ set softtabstop=2
 set shiftwidth=2
 "Insert smart tabs at beginning of line
 set smarttab
+"Increase tab maximum
+set tabpagemax=100
 
 """""""""""""""""""""""""""""""
 " Output                      "
