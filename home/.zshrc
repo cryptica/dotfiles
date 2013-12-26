@@ -123,10 +123,27 @@ alias -g S='&> /dev/null &'
 #
 
 function title {
-    print -Pn $'\e]2;%~\a'
+  if [[ -n $TMUX ]]; then
+    print -Pn "\033k$1\033\\"
+  fi
+  print -Pn "\e]2;$2\a"
 }
 
 function precmd {
-    title
+  user=$(whoami)
+  host=$(hostname)
+  fulldir=${PWD/$HOME/\~}
+  shortdir=${fulldir##*/}
+  if [[ -n $1 ]]; then
+    fullcomm=$1
+    windowtitle=${fullcomm%% *}
+  else
+    fullcomm="zsh"
+    windowtitle=$shortdir
+  fi
+  title "$windowtitle" "$fulldir\$$fullcomm"
 }
 
+function preexec {
+  precmd $1
+}
