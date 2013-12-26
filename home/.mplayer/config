@@ -1,0 +1,31 @@
+#
+# Subtitles
+#
+
+# Enable UTF-8
+utf8=yes
+
+# Use font with Japanese characters
+font="IPAGothic"
+
+# Subtitle styling
+ffactor="10" #black outline
+sub-bg-alpha="0" #transparent background
+sub-bg-color="0" #white text color
+subfont-text-scale="3" #size as percent of screen size
+subfont-blur="1" #Slight blur
+
+# Align subtitles a little higher from the bottom
+subpos="90"
+subalign="2"
+
+#
+#Display
+#
+
+# This sets the postprocessing into overdrive using all possible spare cpu cycles to make the movie look better
+autoq=100
+vf=pp=de,hqdn3d
+
+# For slow machines
+framedrop=1
