@@ -1,9 +1,23 @@
+"
+" Options
+"
+
+" Show SSL status in status bar
+set status='input,ssl,location,bookmark,history,tabcount,position'
+
+"
+" Key bindings
+"
+
 let mapleader = 'j'
 
+" Better tab navigation
 map <A-Down> :bnext<CR>
 map <A-Up> :bprevious<CR>
 
+" Hide status bar
 map <silent> <LEADER>h :js toggle_bottombar()<CR>
+
 
 :js << EOF
 function toggle_bottombar() {

@@ -28,15 +28,23 @@ setopt beep
 
 #
 # Export variables
-# 
+#
 
 # Prompts
+prompt_left="%{$fg_bold[blue]%}%n%{$reset_color%}@\
+%{$fg_bold[blue]%}%m%{$reset_color%}:\
+%{$fg[blue]%}%1~%{$reset_color%}"
+prompt_right="%{$fg[green]%}%~%{$reset_color%}"
+export PS1="$prompt_left\$ "
+export PS2="$prompt_left%# "
+export PS3="$prompt_left%% "
+export RPS1=$prompt_right
+export RPS2=$prompt_right
+export RPS3=$prompt_right
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? (yes, no, abort, edit) "
-export PS1="$(print '%{\e[1;34m%}%m%{\e[0m%}'):$(print '%{\e[0;34m%}%~%{\e[0m%}')$ "
-export PS2="$(print '%{\e[0;34m%}>%{\e[0m%}')"
 
 # Path
-export PATH=$PATH:/home/philipp/bin
+export PATH=$PATH:$HOME/bin
 
 # Preferred programs
 export EDITOR="vim"
@@ -130,20 +138,9 @@ function title {
 }
 
 function precmd {
-  user=$(whoami)
-  host=$(hostname)
-  fulldir=${PWD/$HOME/\~}
-  shortdir=${fulldir##*/}
-  if [[ -n $1 ]]; then
-    fullcomm=$1
-    windowtitle=${fullcomm%% *}
-  else
-    fullcomm="zsh"
-    windowtitle=$shortdir
-  fi
-  title "$windowtitle" "$fulldir\$$fullcomm"
+  title "%1~" "%~"
 }
 
 function preexec {
-  precmd $1
+  title "${1%% *}" "$1"
 }
