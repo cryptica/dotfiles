@@ -24,7 +24,7 @@ setopt inc_append_history
 setopt share_history
 setopt autocd
 setopt auto_pushd
-unsetopt beep
+setopt beep
 
 #
 # Export variables
@@ -122,16 +122,11 @@ alias -g S='&> /dev/null &'
 # Functions
 #
 
-# Change xterm title to cwd
-function change_title() {
-  print -Pn "\e]2;%~\a"
+function title {
+    print -Pn $'\e]2;%~\a'
 }
-change_title
 
-# Keep working directory
-source /etc/profile.d/vte.sh
-chpwd_functions+=("__vte_osc7")
-
-# Change title to pwd
-chpwd_functions+=("change_title")
+function precmd {
+    title
+}
 
