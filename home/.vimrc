@@ -74,6 +74,18 @@ set smarttab
 "Increase tab maximum
 set tabpagemax=100
 
+" highlight unwanted spaces
+highlight UnwantedSpaces ctermbg=red guibg=red
+match UnwantedSpaces /\s\+$\|\s\t\|\t\s/
+
+" characters to use for :set list
+set listchars=tab:▸\ ,eol:¬
+
+" don't exit visual mode after indenting/outdenting; inspired by
+" http://vimcasts.org/episodes/indentation-commands/
+vmap < <gv
+vmap > >gv
+
 """""""""""""""""""""""""""""""
 " Output                      "
 """""""""""""""""""""""""""""""
