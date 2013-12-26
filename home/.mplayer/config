@@ -19,13 +19,3 @@ subfont-blur="1" #Slight blur
 subpos="90"
 subalign="2"
 
-#
-#Display
-#
-
-# This sets the postprocessing into overdrive using all possible spare cpu cycles to make the movie look better
-autoq=100
-vf=pp=de,hqdn3d
-
-# For slow machines
-framedrop=1
