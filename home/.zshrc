@@ -56,7 +56,11 @@ export QT_IM_MODULE="uim"
 export XMODIFIERS=@im="uim"
 
 # Export term (needed for correct colors in tmux)
-export TERM="xterm-256color"
+if [[ "$TERM" == "xterm" ]]; then
+  export TERM="xterm-256color"
+elif [[ "$TERM" == "screen" ]]; then
+  export TERM="screen-256color"
+fi
 
 #
 # Keybindings
@@ -137,8 +141,12 @@ function title {
   print -Pn "\e]2;$2\a"
 }
 
+function chpwd {
+  title "%1~" "%1~"
+}
+
 function precmd {
-  title "%1~" "%~"
+  chpwd
 }
 
 function preexec {

@@ -96,7 +96,7 @@ syntax enable
 "Set colors
 set background=light
 colorscheme solarized
-set t_Co=16
+set t_Co=256
 
 "Font for gvim
 set guifont=monospace\ 11
@@ -115,6 +115,12 @@ set laststatus=2
 
 "Format of statusline
 set statusline=%F\ [%{strlen(&fenc)?&fenc:'none'}][%{&ff}]%h%w%y%m%r%=%l:%c\ %l/%L\ %P
+
+" enable rainbow parens
+autocmd VimEnter * RainbowParenthesesToggleAll
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
 
 """""""""""""""""""""""""""""""
 " Input                       "

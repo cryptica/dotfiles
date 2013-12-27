@@ -1,7 +1,7 @@
 (if
     (and
-        (is (application_name) "Terminal")
-        (is (window_name) "Screen-Terminal")
+        (is (application_name) "terminator")
+        (is (window_name) "SCREEN")
     )
     (begin
         (skip_tasklist)
