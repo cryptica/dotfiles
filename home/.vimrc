@@ -45,7 +45,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " http://vim.wikia.com/wiki/Accessing_the_system_clipboard
 " needs +clipboard / +xterm_clipboard
 " (in Arch you need the gvim package even with console vim)
-set clipboard=unnamedplus
+set clipboard=autoselect
 
 """""""""""""""""""""""""""""""
 " Indent & Tabs               "
@@ -77,6 +77,7 @@ set tabpagemax=100
 " highlight unwanted spaces
 highlight UnwantedSpaces ctermbg=red guibg=red
 match UnwantedSpaces /\s\+$\|\s\t\|\t\s/
+autocmd ColorScheme * highlight UnwantedSpaces ctermbg=red guibg=red0
 
 " characters to use for :set list
 set listchars=tab:▸\ ,eol:¬

@@ -1,6 +1,6 @@
 #
 # Options for zsh
-# 
+#
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
@@ -13,7 +13,6 @@ autoload -U zmv
 autoload -U colors && colors
 autoload -U url-quote-magic && zle -N self-insert url-quote-magic
 autoload -U zsh/pcre
-autoload -U select-word-style && select-word-style bash
 
 # Set options
 setopt correct
@@ -22,13 +21,21 @@ setopt menu_complete
 setopt complete_in_word
 setopt inc_append_history
 setopt share_history
-setopt autocd
+setopt extended_history
+setopt hist_ignore_all_dups hist_save_no_dups hist_find_no_dups
+setopt hist_reduce_blanks
+setopt hist_no_store
+setopt notify
+setopt auto_cd
 setopt auto_pushd
 setopt beep
 
 #
 # Export variables
 #
+
+# backward word delete to slash, but not backlash
+export WORDCHARS=${WORDCHARS/\//}"\\"
 
 # Prompts
 prompt_left="%{$fg_bold[blue]%}%n%{$reset_color%}@\
@@ -64,7 +71,7 @@ fi
 
 #
 # Keybindings
-# 
+#
 
 # emacs keys
 bindkey -e
@@ -95,21 +102,24 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
 #
-# Stuff to make my life easier
+# Completion
 #
 
-# completion
-zstyle ':completion:*' menu select
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
 
-# allow approximate
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-# tab completion for PID :D
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always
-zstyle ':completion:*:*:kill:*:processes' command 'ps --forest -e -o pid,user,tty,cmd'
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 #
 # Aliases
@@ -121,11 +131,13 @@ alias ll='ls -la'
 alias lh='ls -lah'
 alias mv="mv -i"
 alias cp="cp -i"
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
 alias sudo='sudo -E'
 alias vim='vim -p'
 
 # command L equivalent to command |less
-alias -g L='|less' 
+alias -g L='|less'
 
 # command S equivalent to command &> /dev/null &
 alias -g S='&> /dev/null &'
@@ -136,19 +148,18 @@ alias -g S='&> /dev/null &'
 
 function title {
   if [[ -n $TMUX ]]; then
-    print -Pn "\033k$1\033\\"
+    print -Pn "\ek$1\e\\"
+    # fix to display new directory right away
+    tmux refresh-client
   fi
   print -Pn "\e]2;$2\a"
 }
 
-function chpwd {
-  title "%1~" "%1~"
-}
-
 function precmd {
-  chpwd
+  title "%1~" "%~"
 }
 
 function preexec {
   title "${1%% *}" "$1"
 }
+
