@@ -77,7 +77,7 @@ set tabpagemax=100
 " highlight unwanted spaces
 highlight UnwantedSpaces ctermbg=red guibg=red
 match UnwantedSpaces /\s\+$\|\s\t\|\t\s/
-autocmd ColorScheme * highlight UnwantedSpaces ctermbg=red guibg=red0
+autocmd ColorScheme * highlight UnwantedSpaces ctermbg=red guibg=red
 
 " characters to use for :set list
 set listchars=tab:▸\ ,eol:¬
@@ -94,10 +94,12 @@ vmap > >gv
 "Enable syntax highlighting
 syntax enable
 
+
+"let g:colors_name='solarized'
 "Set colors
 set background=light
-colorscheme solarized
 set t_Co=256
+colorscheme solarized
 
 "Font for gvim
 set guifont=monospace\ 11
