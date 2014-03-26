@@ -74,11 +74,6 @@ set smarttab
 "Increase tab maximum
 set tabpagemax=100
 
-" highlight unwanted spaces
-highlight UnwantedSpaces ctermbg=red guibg=red
-match UnwantedSpaces /\s\+$\|\s\t\|\t\s/
-autocmd ColorScheme * highlight UnwantedSpaces ctermbg=red guibg=red
-
 " characters to use for :set list
 set listchars=tab:▸\ ,eol:¬
 
@@ -93,7 +88,6 @@ vmap > >gv
 
 "Enable syntax highlighting
 syntax enable
-
 
 "let g:colors_name='solarized'
 "Set colors
@@ -119,11 +113,15 @@ set laststatus=2
 "Format of statusline
 set statusline=%F\ [%{strlen(&fenc)?&fenc:'none'}][%{&ff}]%h%w%y%m%r%=%l:%c\ %l/%L\ %P
 
-" enable rainbow parens
+"Enable rainbow parentheses
 autocmd VimEnter * RainbowParenthesesToggleAll
 autocmd Syntax * RainbowParenthesesLoadRound
 autocmd Syntax * RainbowParenthesesLoadSquare
 autocmd Syntax * RainbowParenthesesLoadBraces
+
+" highlight unwanted spaces
+highlight UnwantedSpaces ctermbg=red guibg=red
+autocmd BufNewFile,Bufread * match UnwantedSpaces /\s\+$\|\s\t\|\t\s/
 
 """""""""""""""""""""""""""""""
 " Input                       "
@@ -158,6 +156,11 @@ map <C-right> <C-W><right>
 map <M-left> :tabprevious<cr>
 map <M-right> :tabnext<cr>
 
+"Move around erros
+map <leader>p :lprevious<cr>
+map <leader>n :lnext<cr>
+map <leader>l :ll<cr>
+
 """""""""""""""""""""""""""""""
 " Plugin configuration        "
 """""""""""""""""""""""""""""""
@@ -177,6 +180,28 @@ autocmd BufNewFile,Bufread *.tex set filetype=tex
 map <leader>r :YRShow<cr>
 let g:yankring_persist = 0
 let g:yankring_history_dir = "~/"
+
+"Mappings for syntastic
+"map <silent><leader>h :Errors<CR>
+map <silent><leader>s :SyntasticToggleMode<CR>
+
+"Auto error location listing
+let g:syntastic_auto_loc_list=1
+
+"Enable signs
+let g:syntastic_enable_signs=1
+
+"Check on open
+let g:syntastic_check_on_open=1
+
+"""""""""""""""""""""""""""""""
+" Haskell
+"""""""""""""""""""""""""""""""
+
+" Reload
+autocmd FileType haskell map <silent><localleader>t :GhcModType<CR>
+autocmd FileType haskell map <silent><localleader>c :GhcModTypeClear<CR>
+autocmd FileType haskell map <silent><localleader>i :GhcModTypeInsert<CR>
 
 """""""""""""""""""""""""""""""
 " Misc                        "

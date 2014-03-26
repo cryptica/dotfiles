@@ -14,3 +14,12 @@
 [submodule "home/.vim/bundle/pathogen"]
 	path = home/.vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "home/.vim/bundle/syntastic"]
+	path = home/.vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "home/.vim/bundle/ghcmod"]
+	path = home/.vim/bundle/ghcmod
+	url = git://github.com/eagletmt/ghcmod-vim.git
+[submodule "home/.vim/bundle/vimproc"]
+	path = home/.vim/bundle/vimproc
+	url = git://github.com/Shougo/vimproc.vim.git
