@@ -65,10 +65,10 @@ set wrap
 set tabstop=4
 "Expand tab insertion to spaces
 set expandtab
-"Insert 2 spaces when pressing tab
-set softtabstop=2
-"Indent by 2 spaces
-set shiftwidth=2
+"Insert 4 spaces when pressing tab
+set softtabstop=4
+"Indent by 4 spaces
+set shiftwidth=4
 "Insert smart tabs at beginning of line
 set smarttab
 "Increase tab maximum
