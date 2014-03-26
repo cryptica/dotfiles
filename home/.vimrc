@@ -190,6 +190,9 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 
+"Vim2hs
+let g:haskell_conceal_wide=1
+
 """""""""""""""""""""""""""""""
 " Misc                        "
 """""""""""""""""""""""""""""""
