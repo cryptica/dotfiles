@@ -161,6 +161,9 @@ map <leader>p :lprevious<cr>
 map <leader>n :lnext<cr>
 map <leader>l :ll<cr>
 
+"Omnicompletion
+inoremap <C-O> <C-X><C-O>
+
 """""""""""""""""""""""""""""""
 " Plugin configuration        "
 """""""""""""""""""""""""""""""
@@ -181,27 +184,11 @@ map <leader>r :YRShow<cr>
 let g:yankring_persist = 0
 let g:yankring_history_dir = "~/"
 
-"Mappings for syntastic
-"map <silent><leader>h :Errors<CR>
+"Syntastic
 map <silent><leader>s :SyntasticToggleMode<CR>
-
-"Auto error location listing
 let g:syntastic_auto_loc_list=1
-
-"Enable signs
 let g:syntastic_enable_signs=1
-
-"Check on open
 let g:syntastic_check_on_open=1
-
-"""""""""""""""""""""""""""""""
-" Haskell
-"""""""""""""""""""""""""""""""
-
-" Reload
-autocmd FileType haskell map <silent><localleader>t :GhcModType<CR>
-autocmd FileType haskell map <silent><localleader>c :GhcModTypeClear<CR>
-autocmd FileType haskell map <silent><localleader>i :GhcModTypeInsert<CR>
 
 """""""""""""""""""""""""""""""
 " Misc                        "

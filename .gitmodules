@@ -23,3 +23,12 @@
 [submodule "home/.vim/bundle/vimproc"]
 	path = home/.vim/bundle/vimproc
 	url = git://github.com/Shougo/vimproc.vim.git
+[submodule "home/.vim/bundle/vim2hs"]
+	path = home/.vim/bundle/vim2hs
+	url = git://github.com/dag/vim2hs.git
+[submodule "home/.vim/bundle/neco-ghc"]
+	path = home/.vim/bundle/neco-ghc
+	url = git://github.com/eagletmt/neco-ghc.git
+[submodule "home/.vim/bundle/vimshell"]
+	path = home/.vim/bundle/vimshell
+	url = git://github.com/Shougo/vimshell.vim.git
