@@ -164,19 +164,21 @@ map <leader>l :ll<cr>
 "Omnicompletion
 inoremap <C-O> <C-X><C-O>
 
+"Make
+map <silent><leader><space> :w<cr>:make<cr>
+
 """""""""""""""""""""""""""""""
 " Plugin configuration        "
 """""""""""""""""""""""""""""""
 
 "LaTeX Suite
-let g:Tex_CompileRule_pdf = 'lualatex --shell-escape'
+let g:Tex_CompileRule_pdf='latexmk -pdflatex=lualatex -pdf $*'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_FoldedSections="part,chapter,section,%%fakesection,subsection,subsubsection,paragraph"
 let g:Tex_FoldedMisc=""
 let g:Tex_FoldedEnvironments=""
-let g:Imap_UsePlaceHolders = 0
-let g:Tex_SmartKeyQuote=0
-autocmd FileType tex map <silent><leader><space> :w!<cr>:call Tex_CompileLatex()<cr>
+"let g:Imap_UsePlaceHolders = 0
+"let g:Tex_SmartKeyQuote=0
 autocmd BufNewFile,Bufread *.tex set filetype=tex
 
 "Yank Ring
