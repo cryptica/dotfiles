@@ -172,13 +172,13 @@ map <silent><leader><space> :w<cr>:make<cr>
 """""""""""""""""""""""""""""""
 
 "LaTeX Suite
-let g:Tex_CompileRule_pdf='latexmk -pdflatex=lualatex -pdf $*'
+let g:Tex_CompileRule_pdf='latexmk -pdflatex=lualatex -latexoption=-halt-on-error -pdf $*'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_FoldedSections="part,chapter,section,%%fakesection,subsection,subsubsection,paragraph"
 let g:Tex_FoldedMisc=""
 let g:Tex_FoldedEnvironments=""
 "let g:Imap_UsePlaceHolders = 0
-"let g:Tex_SmartKeyQuote=0
+let g:Tex_SmartKeyQuote=0
 autocmd BufNewFile,Bufread *.tex set filetype=tex
 
 "Yank Ring
