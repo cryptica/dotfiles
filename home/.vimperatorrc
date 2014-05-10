@@ -18,7 +18,10 @@ map <A-Up> :bprevious<CR>
 " Hide status bar
 map <silent> <LEADER>h :js toggle_bottombar()<CR>
 
+" Hide address bar
+set gui=nonavigation
 
+" Command to toggle bottom bar
 :js << EOF
 function toggle_bottombar() {
     var bb = document.getElementById('liberator-bottombar');
