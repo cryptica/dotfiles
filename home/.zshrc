@@ -51,7 +51,7 @@ export RPS3=$prompt_right
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? (yes, no, abort, edit) "
 
 # Path
-export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/bin
 
 # Preferred programs
 export EDITOR="vim"
