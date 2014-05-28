@@ -124,6 +124,20 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# Fancy command store and restore
+
+fancy-ctrl-z () {
+  emulate -LR zsh
+  if [[ $#BUFFER -eq 0 ]]; then
+fg
+zle redisplay
+  else
+zle push-input
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey "^Z" fancy-ctrl-z
+
 #
 # Aliases
 #
