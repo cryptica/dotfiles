@@ -5,6 +5,9 @@
 " Show SSL status in status bar
 set status='input,ssl,location,bookmark,history,tabcount,position'
 
+" Don't separate urls on comma
+set urlseparator=''
+
 "
 " Key bindings
 "
