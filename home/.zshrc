@@ -13,6 +13,7 @@ autoload -U zmv
 autoload -U colors && colors
 autoload -U url-quote-magic && zle -N self-insert url-quote-magic
 autoload -U zsh/pcre
+autoload -U select-word-style && select-word-style shell
 
 # Set options
 setopt correct
@@ -33,9 +34,6 @@ setopt beep
 #
 # Export variables
 #
-
-# backward word delete to slash, but not backlash
-export WORDCHARS=${WORDCHARS/\//}"\\"
 
 # Prompts
 prompt_left="%{$fg_bold[blue]%}%n%{$reset_color%}@\
