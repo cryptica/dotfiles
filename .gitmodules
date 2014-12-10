@@ -10,10 +10,10 @@
 	url = git://github.com/kien/rainbow_parentheses.vim
 [submodule "home/.vim/bundle/latex-suite"]
 	path = home/.vim/bundle/latex-suite
-	url = https://github.com/gerw/vim-latex-suite
+	url = git://github.com/gerw/vim-latex-suite
 [submodule "home/.vim/bundle/pathogen"]
 	path = home/.vim/bundle/pathogen
-	url = https://github.com/tpope/vim-pathogen
+	url = git://github.com/tpope/vim-pathogen
 [submodule "home/.vim/bundle/syntastic"]
 	path = home/.vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
