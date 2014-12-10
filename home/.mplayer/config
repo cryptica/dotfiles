@@ -15,7 +15,18 @@ sub-bg-color="0" #white text color
 subfont-text-scale="2" #size as percent of screen size
 subfont-blur="1" #Slight blur
 
+# ASS styling
+ass=yes
+ass-color=0xFFFFFF00
+ass-border-color=0x00000000
+ass-font-scale=1.2
+ass-force-style=Outline=1,MarginV=20
+embeddedfonts=true
+
 # Align subtitles a little higher from the bottom
 subpos="90"
 subalign="2"
 
+# Prefered languages
+alang=ja,jpn,en,eng
+slang=ja,jpn,en,eng
