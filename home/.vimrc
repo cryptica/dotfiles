@@ -144,10 +144,10 @@ let g:maplocalleader = 'h'
 nmap <leader>w :w<cr>
 "Quit
 nmap <leader>q :qa<cr>
-"Tab edit
-nmap <leader>e :tabedit 
-"Intelligent close
-map <leader>c :tabclose<cr>
+"Buffer edit
+nmap <leader>e :e 
+"Buffer close
+map <leader>c :MBEbd<cr>
 
 "Smart way to move btw. windows
 map <C-down> <C-W><down>
@@ -155,11 +155,11 @@ map <C-up> <C-W><up>
 map <C-left> <C-W><left>
 map <C-right> <C-W><right>
 
-"Move around tabs
-map <M-left> :tabprevious<cr>
-map <M-right> :tabnext<cr>
+"Move around buffers
+map <M-left> :MBEbp<cr>
+map <M-right> :MBEbn<cr>
 
-"Move around erros
+"Move around errors
 map <leader>p :lprevious<cr>
 map <leader>n :lnext<cr>
 map <leader>l :ll<cr>

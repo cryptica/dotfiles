@@ -152,7 +152,6 @@ alias cp="cp -i"
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias sudo='sudo -E'
-alias vim='vim -p'
 
 # command L equivalent to command |less
 alias -g L='|less'
