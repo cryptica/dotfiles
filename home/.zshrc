@@ -102,6 +102,9 @@ bindkey "\eOF" end-of-line
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
+# backwards delete line
+bindkey \^U backward-kill-line
+
 #
 # Completion
 #
