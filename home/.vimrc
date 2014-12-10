@@ -39,6 +39,9 @@ set magic
 set errorbells
 set novisualbell
 
+"Don't create swap files
+set noswapfile
+
 "When .vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
