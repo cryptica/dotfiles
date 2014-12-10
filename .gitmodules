@@ -32,3 +32,6 @@
 [submodule "home/.vim/bundle/vimshell"]
 	path = home/.vim/bundle/vimshell
 	url = git://github.com/Shougo/vimshell.vim.git
+[submodule "home/.vim/bundle/minbufexpl"]
+	path = home/.vim/bundle/minbufexpl
+	url = git://github.com/fholgado/minibufexpl.vim.git
