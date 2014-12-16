@@ -198,6 +198,9 @@ let g:syntastic_check_on_open=1
 "Vim2hs
 let g:haskell_conceal_wide=1
 
+"MiniBufExpl
+let g:miniBufExplCycleArround = 1
+
 """""""""""""""""""""""""""""""
 " Misc                        "
 """""""""""""""""""""""""""""""
