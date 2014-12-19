@@ -199,7 +199,7 @@ let g:syntastic_check_on_open=1
 let g:haskell_conceal_wide=1
 
 "MiniBufExplorer
-let g:MiniBufExplCycleArround=1
+let g:miniBufExplCycleArround=1
 
 """""""""""""""""""""""""""""""
 " Misc                        "
