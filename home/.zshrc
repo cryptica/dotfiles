@@ -48,6 +48,10 @@ export RPS2=$prompt_right
 export RPS3=$prompt_right
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? (yes, no, abort, edit) "
 
+# Lang and locale
+export LANG="en_US.UTF-8"
+export LOCALE="de_DE.UTF-8"
+
 # Path
 export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin
 
