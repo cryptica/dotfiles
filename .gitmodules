@@ -35,3 +35,6 @@
 [submodule "home/.vim/bundle/minibufexpl"]
 	path = home/.vim/bundle/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
+[submodule "home/.vim/bundle/sunset"]
+	path = home/.vim/bundle/sunset
+	url = git://github.com/amdt/sunset.git
