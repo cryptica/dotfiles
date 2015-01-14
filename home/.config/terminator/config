@@ -10,36 +10,52 @@
   title_receive_fg_color = "#657b83"
   inactive_color_offset = 0.89
   title_inactive_bg_color = "#d4cfbe"
+  borderless = True
 [keybindings]
-  go_up = <Ctrl>Up
   next_tab = None
   split_horiz = <Ctrl><Shift>O
   prev_tab = None
-  go_down = <Ctrl>Down
+  go_up = None
+  go_down = None
+  go_right = None
+  go_left = None
   split_vert = <Ctrl><Shift>E
-  go_right = <Ctrl>Right
-  go_left = <Ctrl>Left
-  hide_window = <Ctrl><Shift>h
+  hide_window = None
 [profiles]
+  [[solarized-dark]]
+    scrollbar_position = hidden
+    term = xterm-256color
+    background_image = None
+    copy_on_selection = True
+    show_titlebar = False
+    audible_bell = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    foreground_color = "#839496"
+    background_color = "#002b36"
+    cursor_color = "#839496"
+  [[solarized-light]]
+    scrollbar_position = hidden
+    term = xterm-256color
+    background_image = None
+    copy_on_selection = True
+    show_titlebar = False
+    audible_bell = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_color = "#fdf6e3"
+    foreground_color = "#657b83"
+    cursor_color = "#657b83"
   [[default]]
     scrollbar_position = hidden
     term = xterm-256color
     background_image = None
+    copy_on_selection = True
+    show_titlebar = False
     audible_bell = True
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    cursor_color = "#657b83"
-    foreground_color = "#657b83"
-    copy_on_selection = True
     background_color = "#fdf6e3"
+    foreground_color = "#657b83"
+    cursor_color = "#657b83"
 [layouts]
-  [[default]]
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-      profile = default
-    [[[window0]]]
-      type = Window
-      parent = ""
   [[split]]
     [[[windowmain]]]
       position = 0:27
