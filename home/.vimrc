@@ -201,6 +201,11 @@ let g:haskell_conceal_wide=1
 "MiniBufExplorer
 let g:miniBufExplCycleArround=1
 
+"Sunset
+let g:sunset_latitude = 48.137
+let g:sunset_longitude = 11.575
+let g:sunset_utc_offset = 1
+
 """""""""""""""""""""""""""""""
 " Misc                        "
 """""""""""""""""""""""""""""""
