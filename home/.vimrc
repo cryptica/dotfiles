@@ -63,6 +63,7 @@ set nocindent
 
 "Wrap lines
 set wrap
+set linebreak
 
 "Tab character displayed as 4 spaces
 set tabstop=4
@@ -123,7 +124,7 @@ autocmd Syntax * RainbowParenthesesLoadSquare
 autocmd Syntax * RainbowParenthesesLoadBraces
 
 " highlight unwanted spaces
-highlight UnwantedSpaces ctermbg=red guibg=red
+autocmd BufNewFile,Bufread * highlight UnwantedSpaces ctermbg=red guibg=red
 autocmd BufNewFile,Bufread * match UnwantedSpaces /\s\+$\|\s\t\|\t\s/
 
 """""""""""""""""""""""""""""""
@@ -138,6 +139,9 @@ let mapleader = 'j'
 let g:mapleader = 'j'
 let maplocalleader = 'h'
 let g:maplocalleader = 'h'
+
+"Delete backwards with backspace in normal mode
+:nnoremap <bs> X
 
 "Shortcuts
 "Write
@@ -154,10 +158,30 @@ map <C-down> <C-W><down>
 map <C-up> <C-W><up>
 map <C-left> <C-W><left>
 map <C-right> <C-W><right>
+map <C-s> <C-W><
+map <C-o> <C-W>>
+map <C-c> <C-W>c
+map <leader>v <C-W>v
+map <leader>s <C-W>s
 
 "Move around buffers
 map <M-left> :MBEbp<cr>
 map <M-right> :MBEbn<cr>
+nmap <C-p> :MBEbp<cr>
+nmap <C-e> :MBEbp<cr>
+nmap <C-n> :MBEbn<cr>
+"map <leader>r :MBEbp<cr>
+"map <leader>n :MBEbn<cr>
+"map <leader>m :MBEFocusAll<cr>
+map <leader>1 :b 1<cr>
+map <leader>2 :b 2<cr>
+map <leader>3 :b 3<cr>
+map <leader>4 :b 4<cr>
+map <leader>5 :b 5<cr>
+map <leader>6 :b 6<cr>
+map <leader>7 :b 7<cr>
+map <leader>8 :b 8<cr>
+map <leader>9 :b 9<cr>
 
 "Move around errors
 map <leader>p :lprevious<cr>
@@ -186,25 +210,26 @@ autocmd BufNewFile,Bufread *.tex set filetype=tex
 
 "Yank Ring
 map <leader>r :YRShow<cr>
+let g:yankring_replace_n_pkey = '<'
+let g:yankring_replace_n_nkey = '>'
 let g:yankring_persist = 0
 let g:yankring_history_dir = "~/"
 
 "Syntastic
-map <silent><leader>s :SyntasticToggleMode<CR>
+"map <silent><leader>s :SyntasticToggleMode<CR>
 let g:syntastic_auto_loc_list=1
+let g:syntastic_always_populate_loc_list=1
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
+let g:syntastic_ignore_files=['\m\c.cc$','\m\c.hh']
 
 "Vim2hs
 let g:haskell_conceal_wide=1
 
 "MiniBufExplorer
 let g:miniBufExplCycleArround=1
-
-"Sunset
-let g:sunset_latitude = 48.137
-let g:sunset_longitude = 11.575
-let g:sunset_utc_offset = 1
+let g:miniBufExplAutoStart=1
+let g:miniBufExplBuffersNeeded=1
 
 """""""""""""""""""""""""""""""
 " Misc                        "
@@ -217,5 +242,8 @@ map Y y$
 set pastetoggle=<F3>
 
 "Super paste
-inoremap <C-v> <esc>:set paste<cr>mui<C-R>+<esc>mv'uV'v=:set nopaste<cr>
+"inoremap <C-v> <esc>:set paste<cr>mui<C-R>+<esc>mv'uV'v=:set nopaste<cr>
+
+"Treat .cl files to OpenCL kernel files
+au BufRead,BufNewFile *.cl set filetype=c
 

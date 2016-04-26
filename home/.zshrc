@@ -1,6 +1,15 @@
 #
+# Terminal settings
+#
+
+# Fix to prevent terminal freezing on password prompt
+ttyctl -f
+
+#
 # Options for zsh
 #
+
+# History
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
@@ -48,19 +57,21 @@ export RPS2=$prompt_right
 export RPS3=$prompt_right
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? (yes, no, abort, edit) "
 
-# Lang and locale
-export LANG="en_US.UTF-8"
-export LOCALE="de_DE.UTF-8"
-
 # Path
-export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/bin
 
 # Preferred programs
 export EDITOR="vim"
 export BROWSER="firefox"
 
-# Use Z3 in Isabelle
-export Z3_NON_COMMERCIAL="yes"
+# HIP, HCC and HSA variables
+export HCC_HOME=~/local/HCC
+export HIP_HOME=~/local/HIP
+export HSA_PATH=~/local/HSA
+export PATH=$HCC_HOME/bin:$HIP_HOME/bin:$PATH
+
+# Fix for JAVA GUI programs
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Export uim variables
 export GTK_IM_MODULE="uim"
@@ -134,10 +145,10 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 fancy-ctrl-z () {
   emulate -LR zsh
   if [[ $#BUFFER -eq 0 ]]; then
-fg
-zle redisplay
+    fg
+    zle redisplay
   else
-zle push-input
+    zle push-input
   fi
 }
 zle -N fancy-ctrl-z
@@ -156,6 +167,7 @@ alias cp="cp -i"
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias sudo='sudo -E'
+alias vim='stty -ixon; vim'
 
 # command L equivalent to command |less
 alias -g L='|less'

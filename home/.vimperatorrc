@@ -17,9 +17,15 @@ let mapleader = 'j'
 " Better tab navigation
 map <A-Down> :bnext<CR>
 map <A-Up> :bprevious<CR>
+map <C-down> :bnext<cr>
+map <C-up> :bprevious<cr>
+" History navigation
+map <C-left> :forward<cr>
+map <C-right> :back<cr>
+
 
 " Hide status bar
-map <silent> <LEADER>h :js toggle_bottombar()<CR>
+map <silent> <leader>b :js toggle_bottombar()<cr>
 
 " Hide address bar
 set gui=nonavigation

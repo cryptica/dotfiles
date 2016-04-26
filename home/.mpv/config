@@ -5,3 +5,6 @@ alang=ja,jpn,en,eng
 # DVD/Blu-ray device
 bluray-device=/dev/sr0
 dvd-device=/dev/sr0
+
+# fix for fullscreen on xmonad
+x11-netwm=yes
