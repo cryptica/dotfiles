@@ -57,7 +57,7 @@
       type = Window
   [[tmux]]
     [[[child1]]]
-      command = /usr/bin/tmux
+      command = TERM=xterm-256color tmux
       parent = window0
       profile = default
       type = Terminal
