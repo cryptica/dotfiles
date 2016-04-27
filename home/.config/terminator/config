@@ -57,7 +57,7 @@
       type = Window
   [[tmux]]
     [[[child1]]]
-      command = /home/philipp/bin/switch/tmux
+      command = /usr/bin/tmux
       parent = window0
       profile = default
       type = Terminal
